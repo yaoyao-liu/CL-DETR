@@ -229,7 +229,6 @@ def main(args):
             data_loader_val_old = DataLoader(dataset_val_old, args.batch_size, sampler=sampler_val_old, drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers, pin_memory=True)
             data_loader_val_new = DataLoader(dataset_val_new, args.batch_size, sampler=sampler_val_new, drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers, pin_memory=True)
 
-        # lr_backbone_names = ["backbone.0", "backbone.neck", "input_proj", "transformer.encoder"]
         def match_name_keywords(n, name_keywords):
             out = False
             for b in name_keywords:
@@ -318,7 +317,6 @@ def main(args):
                 pg['initial_lr'] = pg_old['initial_lr']
             print(optimizer.param_groups)
             lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
-            # todo: this is a hack for doing experiment that resume from checkpoint and also modify lr scheduler (e.g., decrease lr in advance).
             args.override_resumed_lr_drop = True
             if args.override_resumed_lr_drop:
                 print('Warning: (hack) args.override_resumed_lr_drop is set to True, so args.lr_drop would override lr_drop in resumed lr_scheduler.')
@@ -369,8 +367,6 @@ def main(args):
                         model, criterion, data_loader_train_balanced, optimizer_balanced, device, epoch, args.clip_max_norm)
                     lr_scheduler_balanced.step()
 
-                    test_stats, coco_evaluator = evaluate(model, criterion, postprocessors, data_loader_val, base_ds, device, args.output_dir)
-                    print("Balanced FT - Testing results for all.")
                     if phase_idx >= 1:
                         test_stats, coco_evaluator = evaluate(
                             model, criterion, postprocessors, data_loader_val_old, base_ds_old, device, args.output_dir
@@ -379,7 +375,10 @@ def main(args):
                         test_stats, coco_evaluator = evaluate(
                             model, criterion, postprocessors, data_loader_val_new, base_ds_new, device, args.output_dir
                         )
-                        print("Balanced FT - Testing results for new.")                              
+                        print("Balanced FT - Testing results for new.")   
+                        
+                    test_stats, coco_evaluator = evaluate(model, criterion, postprocessors, data_loader_val, base_ds, device, args.output_dir)
+                    print("Balanced FT - Testing results for all.")                           
 
             if args.output_dir:
                 checkpoint_paths = [output_dir / 'checkpoint.pth']
