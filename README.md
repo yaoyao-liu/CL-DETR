@@ -23,6 +23,13 @@ Run the following script to start the experiment for *COCO 2017, 70+10*:
 bash run_experiments.sh
 ```
 
+### Log files
+
+You may view the log file in `logs/COCO_70_10.out`. It was run by the following server:<br>
+GPU: 4x NVIDIA Quadro RTX 8000, 48 GB GDDR6<br>
+CPU: 1x AMD EPYC 7502P 32-Core Processor<br>
+Memory: 1024 GiB
+
 ### Citation
 
 Please cite our paper if it is helpful to your work:
