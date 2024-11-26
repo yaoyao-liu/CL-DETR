@@ -10,9 +10,9 @@ This repository contains the PyTorch implementation for the [CVPR 2023](https://
 
 This is the preliminary code. If you have any questions on this repository or the related paper, feel free to [create an issue](https://github.com/yaoyao-liu/CL-DETR/issues/new) or [send me an email](mailto:yyliu@cs.jhu.edu).
 
-### Installation 
+### Installation and Datasets
 
-This code is based on Deformable DETR. You may follow the instructions in <https://github.com/fundamentalvision/Deformable-DETR> to install the packages for this project.
+This code is based on Deformable DETR. You may follow the instructions in <https://github.com/fundamentalvision/Deformable-DETR> to install packages and prepare datasets for this project.
 
 ### Checkpoints 
 
