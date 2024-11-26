@@ -47,6 +47,6 @@ Please cite our paper if it is helpful to your work:
   pages        = {23799--23808},
   publisher    = {{IEEE}},
   year         = {2023},
-  doi          = {10.1109/CVPR52729.2023.02279},
+  doi          = {10.1109/CVPR52729.2023.02279}
 }
 ```
