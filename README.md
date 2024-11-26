@@ -14,7 +14,13 @@ This code is based on Deformable DETR. You may follow the instructions in <https
 
 ### Checkpoints 
 
-You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is "COCO 2017, 70+10". 
+You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is "COCO 2017, 70+10". Please put the phase-0 checkpoint, 'phase_0.pth', in the base directory before running the code.
+
+### Running Experiments
+
+```bash
+bash run_experiments.sh
+```
 
 ### Citation
 
