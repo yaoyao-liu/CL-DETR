@@ -1,6 +1,8 @@
 ## Continual Detection Transformer for Incremental Object Detection
 
 [![LICENSE](https://img.shields.io/github/license/yaoyao-liu/E3BM?style=flat-square)](https://github.com/yaoyao-liu/CL-DETR/blob/master/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.7-blue.svg?style=flat-square&logo=python&color=3776AB&logoColor=3776AB)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/pytorch-1.5.1-%237732a8?style=flat-square&logo=PyTorch&color=EE4C2C)](https://pytorch.org/)
 
 [[Paper](https://www.cs.jhu.edu/~yyliu/preprints/Continual_Detection_Transformer_for_Incremental_Object_Detection.pdf)] [[Project Page](https://lyy.mpi-inf.mpg.de/CL-DETR/)]
 
