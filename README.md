@@ -50,3 +50,8 @@ Please cite our paper if it is helpful to your work:
   doi          = {10.1109/CVPR52729.2023.02279}
 }
 ```
+
+### Acknowledgements
+
+Our implementation uses the source code from the following repository:
+- <https://github.com/fundamentalvision/Deformable-DETR>
