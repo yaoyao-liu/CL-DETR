@@ -14,7 +14,7 @@ This code is based on Deformable DETR. You may follow the instructions in <https
 
 ### Checkpoints 
 
-You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is *COCO 2017, 70+10*. Please put the phase-0 checkpoint, `phase_0.pth`, in the base directory before running the code. The current version will automatically load the phase-0 checkpoint to speed up the experiments (this is because phase 0 is not an incremental learning phase; it is the same as the standard Deformable DETR).
+You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is *COCO 2017, 70+10*. Please put the phase-0 checkpoint, `phase_0.pth`, in the base directory before running the code. The current version will automatically load the phase-0 checkpoint to speed up the experiments. This is because phase 0 is not an incremental learning phase. It is the same as the standard Deformable DETR).
 
 ### Running Experiments
 
