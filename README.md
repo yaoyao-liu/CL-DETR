@@ -1,4 +1,4 @@
-# Continual Detection Transformer for Incremental Object Detection
+## Continual Detection Transformer for Incremental Object Detection
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/yaoyao-liu/CL-DETR/blob/master/LICENSE)
 
