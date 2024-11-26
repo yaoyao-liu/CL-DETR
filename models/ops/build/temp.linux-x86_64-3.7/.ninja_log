@@ -1,0 +1,4 @@
+# ninja log v5
+1	4375	1654720740350127101	/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/build/temp.linux-x86_64-3.7/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/src/cpu/ms_deform_attn_cpu.o	cdc7e9e96900676
+2	16214	1654720752186179721	/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/build/temp.linux-x86_64-3.7/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/src/cuda/ms_deform_attn_cuda.o	14b6bd0ce7a1bb19
+2	17222	1654720753170184095	/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/build/temp.linux-x86_64-3.7/BS/yaoyaoliu_project3/work/continual_detection/Deformable-DETR/models/ops/src/vision.o	9c1967a646fe8077
