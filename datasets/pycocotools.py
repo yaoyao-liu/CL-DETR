@@ -75,7 +75,6 @@ class COCO:
                 else:
                     raise ValueError('Please set the correct data setting.')
 
-
                 total_num_img_dataset = len(self.dataset['images'])
 
                 if not incremental_val:
@@ -166,7 +165,6 @@ class COCO:
                                 if img['id'] in this_phase_labaled_img_id_set:
                                     imgs[img['id']] = img
 
-
                     else:
                         if 'annotations' in self.dataset:
                             for ann in self.dataset['annotations']:
@@ -184,9 +182,7 @@ class COCO:
                 for cat in self.dataset['categories']:
                     cats[cat['id']] = cat          
 
-
             print('index created!')
-
 
         else:
             if tfs_or_tfh == 'tfs':
@@ -329,7 +325,6 @@ class COCO:
                     if 'annotations' in self.dataset and 'categories' in self.dataset:
                         for ann in self.dataset['annotations']:
                             catToImgs[ann['category_id']].append(ann['image_id'])            
-
 
             print('index created!')
 
