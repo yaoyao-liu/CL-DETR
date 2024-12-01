@@ -22,7 +22,7 @@ You may download the checkpoints here: \[[link](https://drive.google.com/drive/f
 
 Run the following script to start the experiment for *COCO 2017, 70+10*:
 ```bash
-bash run_experiments.sh
+bash run.sh
 ```
 
 ### Log Files
