@@ -14,6 +14,56 @@ This is the preliminary code. If you have any questions on this repository or th
 
 This code is based on Deformable DETR. You may follow the instructions in <https://github.com/fundamentalvision/Deformable-DETR> to install packages and prepare datasets for this project.
 
+#### Requirements
+
+* Linux, CUDA>=9.2, GCC>=5.4
+  
+* Python>=3.7
+
+    We recommend you to use Anaconda to create a conda environment:
+    ```bash
+    conda create -n cl_detr python=3.7 pip
+    ```
+    Then, activate the environment:
+    ```bash
+    conda activate cl_detr
+    ```
+  
+* PyTorch>=1.5.1, torchvision>=0.6.1 (following instructions [here](https://pytorch.org/))
+
+    For example, if your CUDA version is 9.2, you could install pytorch and torchvision as following:
+    ```bash
+    conda install pytorch=1.5.1 torchvision=0.6.1 cudatoolkit=9.2 -c pytorch
+    ```
+  
+* Other requirements
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+#### Compiling CUDA Operators
+```bash
+cd ./models/ops
+sh ./make.sh
+# unit test (should see all checking is True)
+python test.py
+```
+
+#### Dataset Preparation
+
+Please download [COCO 2017 dataset](https://cocodataset.org/) and organize them as following:
+
+```
+code_root/
+└── data/
+    └── coco/
+        ├── train2017/
+        ├── val2017/
+        └── annotations/
+        	├── instances_train2017.json
+        	└── instances_val2017.json
+```
+
 ### Checkpoints 
 
 You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is *COCO 2017, 70+10*. Please put the phase-0 checkpoint, `phase_0.pth`, in the base directory before running the code. The current version will automatically load the phase-0 checkpoint to speed up the experiments. This is because phase 0 is not an incremental learning phase. It is the same as the standard Deformable DETR.
