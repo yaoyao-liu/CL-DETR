@@ -46,8 +46,7 @@ Please cite our paper if it is helpful to your work:
                   {CVPR} 2023, Vancouver, BC, Canada, June 17-24, 2023},
   pages        = {23799--23808},
   publisher    = {{IEEE}},
-  year         = {2023},
-  doi          = {10.1109/CVPR52729.2023.02279}
+  year         = {2023}
 }
 ```
 
