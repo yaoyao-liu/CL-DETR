@@ -1,1 +1,0 @@
-sbatch -p gpu20 -t 6-23:59:59 --gres gpu:4 ./run_volta.sh
