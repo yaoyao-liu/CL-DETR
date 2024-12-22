@@ -105,7 +105,7 @@ Please cite our paper if it is helpful to your work:
 }
 ```
 
-### Acknowledgements
+### Acknowledgement
 
 Our implementation uses the source code from the following repository:
 - <https://github.com/fundamentalvision/Deformable-DETR>
