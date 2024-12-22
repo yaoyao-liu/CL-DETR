@@ -69,7 +69,7 @@ code_root/
 Incremental object detection results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
 *A* categories annotated. Then, in the second phase, we observe the remaining $\frac{B}{A+B}$ of the training samples, where *B* new categories are annotated.
 
-| Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
+| Setting          | Detection Baseline  | $AP$  | ${AP}_{50}$  | ${AP}_{75}$ | ${AP}_{S}$ | ${AP}_{M}$ | ${AP}_{L}$ |
 | --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
 | [70+10](https://github.com/yaoyao-liu/CL-DETR/tree/70_10) | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
 | [40+40](https://github.com/yaoyao-liu/CL-DETR/tree/40_40) | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
