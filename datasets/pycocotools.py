@@ -1,5 +1,48 @@
 __author__ = 'tylin'
 __version__ = '2.0'
+# Interface for accessing the Microsoft COCO dataset.
+
+# Microsoft COCO is a large image dataset designed for object detection,
+# segmentation, and caption generation. pycocotools is a Python API that
+# assists in loading, parsing and visualizing the annotations in COCO.
+# Please visit http://mscoco.org/ for more information on COCO, including
+# for the data, paper, and tutorials. The exact format of the annotations
+# is also described on the COCO website. For example usage of the pycocotools
+# please see pycocotools_demo.ipynb. In addition to this API, please download both
+# the COCO images and annotations in order to run the demo.
+
+# An alternative to using the API is to load the annotations directly
+# into Python dictionary
+# Using the API provides additional utility functions. Note that this API
+# supports both *instance* and *caption* annotations. In the case of
+# captions not all functions are defined (e.g. categories are undefined).
+
+# The following API functions are defined:
+#  COCO       - COCO api class that loads COCO annotation file and prepare data structures.
+#  decodeMask - Decode binary mask M encoded via run-length encoding.
+#  encodeMask - Encode binary mask M using run-length encoding.
+#  getAnnIds  - Get ann ids that satisfy given filter conditions.
+#  getCatIds  - Get cat ids that satisfy given filter conditions.
+#  getImgIds  - Get img ids that satisfy given filter conditions.
+#  loadAnns   - Load anns with the specified ids.
+#  loadCats   - Load cats with the specified ids.
+#  loadImgs   - Load imgs with the specified ids.
+#  annToMask  - Convert segmentation in an annotation to binary mask.
+#  showAnns   - Display the specified annotations.
+#  loadRes    - Load algorithm results and create API for accessing them.
+#  download   - Download COCO images from mscoco.org server.
+# Throughout the API "ann"=annotation, "cat"=category, and "img"=image.
+# Help on each functions can be accessed by: "help COCO>function".
+
+# See also COCO>decodeMask,
+# COCO>encodeMask, COCO>getAnnIds, COCO>getCatIds,
+# COCO>getImgIds, COCO>loadAnns, COCO>loadCats,
+# COCO>loadImgs, COCO>annToMask, COCO>showAnns
+
+# Microsoft COCO Toolbox.      version 2.0
+# Data, paper, and tutorials available at:  http://mscoco.org/
+# Code written by Piotr Dollar and Tsung-Yi Lin, 2014.
+# Licensed under the Simplified BSD License [see bsd.txt]
 
 import json
 import time
@@ -63,17 +106,18 @@ class COCO:
                         selected_cls_this_phase = cls_order[phase_idx*cls_per_phase:(phase_idx+1)*cls_per_phase]
                 elif tfs_or_tfh == 'tfh':
                     if phase_idx == 0:
-                        selected_cls_this_phase = cls_order[:70]
+                        selected_cls_this_phase = cls_order[:40]
                     else:
                         if incremental_val:
                             if val_each_phase:
-                                selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+70:(phase_idx)*cls_per_phase+70]
+                                selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+40:(phase_idx)*cls_per_phase+40]
                             else:
-                                selected_cls_this_phase = cls_order[:(phase_idx)*cls_per_phase+70]
+                                selected_cls_this_phase = cls_order[:(phase_idx)*cls_per_phase+40]
                         else:
-                            selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+70:(phase_idx)*cls_per_phase+70]
+                            selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+40:(phase_idx)*cls_per_phase+40]
                 else:
                     raise ValueError('Please set the correct data setting.')
+
 
                 total_num_img_dataset = len(self.dataset['images'])
 
@@ -81,11 +125,12 @@ class COCO:
                     if tfs_or_tfh == 'tfs':
                         num_img_this_phase = int(total_num_img_dataset/num_of_phases)
                     elif tfs_or_tfh == 'tfh':
-                        half_dataset = int((total_num_img_dataset*7)/8)
+                        half_dataset = int(total_num_img_dataset/2)
                         if phase_idx == 0:
-                            num_img_this_phase = int((total_num_img_dataset*7)/8)
+                            num_img_this_phase = int(total_num_img_dataset/2)
                         else:
-                            num_img_this_phase = int((total_num_img_dataset)/8)
+                            #num_img_this_phase = int((total_num_img_dataset/2)/num_of_phases)
+                            num_img_this_phase = int(total_num_img_dataset/2)
                     else:
                         raise ValueError('Please set the correct data setting.')
                 else:
@@ -165,6 +210,7 @@ class COCO:
                                 if img['id'] in this_phase_labaled_img_id_set:
                                     imgs[img['id']] = img
 
+
                     else:
                         if 'annotations' in self.dataset:
                             for ann in self.dataset['annotations']:
@@ -182,7 +228,9 @@ class COCO:
                 for cat in self.dataset['categories']:
                     cats[cat['id']] = cat          
 
+
             print('index created!')
+
 
         else:
             if tfs_or_tfh == 'tfs':
@@ -195,29 +243,46 @@ class COCO:
                     selected_cls_this_phase = cls_order[phase_idx*cls_per_phase:(phase_idx+1)*cls_per_phase]
             elif tfs_or_tfh == 'tfh':
                 if phase_idx == 0:
-                    selected_cls_this_phase = cls_order[:70]
+                    selected_cls_this_phase = cls_order[:40]
                 else:
                     if incremental_val:
                         if val_each_phase:
-                            selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+70:(phase_idx)*cls_per_phase+70]
+                            selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+40:(phase_idx)*cls_per_phase+40]
                         else:
-                            selected_cls_this_phase = cls_order[:(phase_idx)*cls_per_phase+70]
+                            selected_cls_this_phase = cls_order[:(phase_idx)*cls_per_phase+40]
                     else:
-                        selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+70:(phase_idx)*cls_per_phase+70]
+                        selected_cls_this_phase = cls_order[(phase_idx-1)*cls_per_phase+40:(phase_idx)*cls_per_phase+40]
             else:
                 raise ValueError('Please set the correct data setting.')
 
+            """
+            categories_list = [one_cat['id'] for one_cat in self.dataset['categories']]
+
+            if max(categories_list)>len(categories_list):       
+                print("Re-organizing the class labels")
+                for one_ann in self.dataset['annotations']:
+                    the_cat_id = one_ann['category_id']
+                    one_ann['category_id'] = categories_list.index(the_cat_id)
+
+                for one_cat in self.dataset['categories']:
+                    the_cat_id = one_cat['id']
+                    one_cat['id'] = categories_list.index(the_cat_id)
+            """
+
+            #import pdb
+            #pdb.set_trace()
             total_num_img_dataset = len(self.dataset['images'])
 
             if not incremental_val:
                 if tfs_or_tfh == 'tfs':
                     num_img_this_phase = int(total_num_img_dataset/num_of_phases)
                 elif tfs_or_tfh == 'tfh':
-                    half_dataset = int((total_num_img_dataset*7)/8)
+                    half_dataset = int(total_num_img_dataset/2)
                     if phase_idx == 0:
-                        num_img_this_phase = int((total_num_img_dataset*7)/8)
+                        num_img_this_phase = int(total_num_img_dataset/2)
                     else:
-                        num_img_this_phase = int((total_num_img_dataset)/8)
+                        #num_img_this_phase = int((total_num_img_dataset/2)/num_of_phases)
+                        num_img_this_phase = int(total_num_img_dataset/2)
                 else:
                     raise ValueError('Please set the correct data setting.')
             else:
@@ -325,6 +390,7 @@ class COCO:
                     if 'annotations' in self.dataset and 'categories' in self.dataset:
                         for ann in self.dataset['annotations']:
                             catToImgs[ann['category_id']].append(ann['image_id'])            
+
 
             print('index created!')
 

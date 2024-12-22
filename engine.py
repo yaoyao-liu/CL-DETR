@@ -1,3 +1,4 @@
+
 """
 Train and eval functions used in main.py
 """
@@ -35,7 +36,7 @@ def train_one_epoch_incremental(model: torch.nn.Module, old_model: torch.nn.Modu
         ref_outputs = old_model(samples)
 
         orig_target_sizes = torch.stack([t["orig_size"] for t in targets], dim=0)
-        ref_results = postprocessors['bbox'](ref_outputs, orig_target_sizes, 10, distillation=True)
+        ref_results = postprocessors['bbox'](ref_outputs, orig_target_sizes, 5, distillation=True)
         ref_loss_dict = criterion(outputs, ref_results, enable_aux=False)
         ref_weight_dict = criterion.ref_weight_dict
         ref_losses = sum(ref_loss_dict[k] * ref_weight_dict[k] for k in ref_loss_dict.keys() if k in ref_weight_dict)
