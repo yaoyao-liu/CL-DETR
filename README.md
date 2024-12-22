@@ -74,6 +74,7 @@ Run the following script to start the experiment for *COCO 2017, 70+10*:
 ```bash
 bash run.sh
 ```
+If you need to run experiments for other settings, e.g., 40+40, you may need to change the code in multiple files. Please refer to this branch for the 40+40 experiments: <https://github.com/yaoyao-liu/CL-DETR/tree/40_40>
 
 ### Log Files
 
