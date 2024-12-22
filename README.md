@@ -76,12 +76,6 @@ bash run.sh
 ```
 If you need to run experiments for the 40+40 setting, you may need to change the code in multiple files, e.g., `main.py` and `datasets/pycocotools.py`. Please refer to this branch for the 40+40 experiments: <https://github.com/yaoyao-liu/CL-DETR/tree/40_40>
 
-### Log Files
-
-You may view the log files in the `logs` folder. It was run by the following server:<br>
-GPU: 4x NVIDIA Quadro RTX 8000, 48 GB GDDR6<br>
-CPU: 1x AMD EPYC 7502P 32-Core Processor
-
 ### Performance
 
 IOD results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
