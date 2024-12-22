@@ -64,6 +64,16 @@ code_root/
         	└── instances_val2017.json
 ```
 
+### Performance
+
+Incremental object detection results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
+*A* categories annotated. Then, in the second phase, we observe the remaining $\frac{B}{A+B}$ of the training samples, where *B* new categories are annotated.
+
+| Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
+| --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
+| [70+10](https://github.com/yaoyao-liu/CL-DETR/tree/70_10) | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
+| [40+40](https://github.com/yaoyao-liu/CL-DETR/tree/40_40) | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
+
 ### Checkpoints 
 
 You may download the checkpoints here: \[[link](https://drive.google.com/drive/folders/1kKLl1MMRMTU4uTc5isoq2wPJjSH-3VhE?usp=sharing)\]. The experiment setting is *COCO 2017, 70+10*. Please put the phase-0 checkpoint, `phase_0.pth`, in the base directory before running the code. The current version will automatically load the phase-0 checkpoint to speed up the experiments. This is because phase 0 is not an incremental learning phase. It is the same as the standard Deformable DETR.
@@ -75,16 +85,6 @@ Run the following script to start the experiment for *COCO 2017, 70+10*:
 bash run.sh
 ```
 If you need to run experiments for the *40+40* setting, you may need to change the code in multiple files, e.g., `main.py` and `datasets/pycocotools.py`. Please refer to this branch for the *40+40* experiments: <https://github.com/yaoyao-liu/CL-DETR/tree/40_40>
-
-### Performance
-
-Incremental object detection results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
-*A* categories annotated. Then, in the second phase, we observe the remaining $\frac{B}{A+B}$ of the training samples, where *B* new categories are annotated.
-
-| Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
-| --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
-| [70+10](https://github.com/yaoyao-liu/CL-DETR/tree/70_10) | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
-| [40+40](https://github.com/yaoyao-liu/CL-DETR/tree/40_40) | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
 
 ### Citation
 
