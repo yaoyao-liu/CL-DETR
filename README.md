@@ -78,7 +78,7 @@ If you need to run experiments for the *40+40* setting, you may need to change t
 
 ### Performance
 
-IOD results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
+Incremental object detection results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
 *A* categories annotated. Then, in the second phase, we observe the remaining $\frac{B}{A+B}$ of the training samples, where *B* new categories are annotated.
 
 | Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
