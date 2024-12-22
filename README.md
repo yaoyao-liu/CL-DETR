@@ -82,6 +82,13 @@ You may view the log file in `logs/COCO_70_10.out`. It was run by the following 
 GPU: 4x NVIDIA Quadro RTX 8000, 48 GB GDDR6<br>
 CPU: 1x AMD EPYC 7502P 32-Core Processor
 
+### Performance
+
+| Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
+| --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
+| 70+10 | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
+| 40+40 | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
+
 ### Citation
 
 Please cite our paper if it is helpful to your work:
