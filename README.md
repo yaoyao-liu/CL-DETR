@@ -78,11 +78,14 @@ If you need to run experiments for the 40+40 setting, you may need to change the
 
 ### Log Files
 
-You may view the log file in `logs/COCO_70_10.out`. It was run by the following server:<br>
+You may view the log files in the `logs` folder. It was run by the following server:<br>
 GPU: 4x NVIDIA Quadro RTX 8000, 48 GB GDDR6<br>
 CPU: 1x AMD EPYC 7502P 32-Core Processor
 
 ### Performance
+
+IOD results (%) on COCO 2017. In the *A*+*B* setup, in the first phase, we observe a fraction $\frac{A}{A+B}$ of the training samples with
+*A* categories annotated. Then, in the second phase, we observe the remaining $\frac{B}{A+B}$ of the training samples, where *B* new categories are annotated.
 
 | Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
 | --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
