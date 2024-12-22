@@ -83,8 +83,8 @@ Incremental object detection results (%) on COCO 2017. In the *A*+*B* setup, in 
 
 | Setting          | Detection Baseline  | AP  | AP50  | AP75 | APS | APM | APL |
 | --------------  |---------- | ----------  | ----------   |------------ | ------------ |------------ | ------------ |
-| 70+10 | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
-| 40+40 | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
+| [70+10](https://github.com/yaoyao-liu/CL-DETR/tree/70_10) | Deformable DETR | 40.1 | 57.8 | 43.7 | 23.2 | 43.2 | 52.1 |
+| [40+40](https://github.com/yaoyao-liu/CL-DETR/tree/40_40) | Deformable DETR | 37.5 | 55.1 | 40.3 | 20.9 | 40.8 | 50.7 |
 
 ### Citation
 
